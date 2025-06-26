@@ -25,9 +25,10 @@ jobs:
             if [ -d "Django-API" ]; then
               cd Django-API && git pull
             else
-              git clone https://github.com/${{ github.repository }} Django-API && cd Django-API/myapi_server
+              git clone https://github.com/${{ github.repository }} Django-API && cd Django-API
             fi
 
+            cd ~/Django-API/myapi_server
             # Stop any running container
             docker stop djangoapp || true
             docker rm djangoapp || true
